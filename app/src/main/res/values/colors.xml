@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gold">#D4AF37</color>
+    <color name="coinglod">#ECC87C</color>
+    <color name="goldvariant">#FFDB90</color>
+    <color name="blackvariant">#605D57</color>
+
+
 </resources>
