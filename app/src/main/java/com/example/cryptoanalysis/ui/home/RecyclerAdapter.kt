@@ -42,7 +42,7 @@ class RecyclerAdapter(val DataSourse : ArrayList<Coin>, val context : Context): 
         val itemVH = DataSourse[position]
         holder.currencyname.text = itemVH.name
         holder.currencyname.setTextColor( Color.parseColor(itemVH.color))
-       holder.price.text = itemVH.price.toString()
+       holder.price.text = "$ " + itemVH.price.toString()
         holder.price.setTextColor( Color.parseColor(itemVH.color))
 
     //to load svg file
