@@ -20,7 +20,7 @@ import com.example.cryptoanalysis.Coin
 import com.example.cryptoanalysis.R
 import com.squareup.picasso.Picasso
 
-class RecyclerAdapter(val DataSourse : ArrayList<Coin>, val context : Context):  RecyclerView.Adapter<ViewHolder>() {
+class RecyclerAdapter(var DataSourse : ArrayList<Coin>, val context : Context):  RecyclerView.Adapter<ViewHolder>() {
 
 
     private lateinit var  ItemListener : onItemClickListener;
@@ -54,6 +54,10 @@ class RecyclerAdapter(val DataSourse : ArrayList<Coin>, val context : Context): 
         return DataSourse.size;
     }
 
+    fun setItem(list: java.util.ArrayList<Coin>) {
+        this.DataSourse =   list
+        notifyDataSetChanged()
+    }
 
     fun ImageView.loadUrl(url: String) {
 
@@ -75,25 +79,6 @@ class RecyclerAdapter(val DataSourse : ArrayList<Coin>, val context : Context): 
 
 
 }
-
-//private fun ImageView.loadSvg(iconUrl: String, symbol: ImageView) {
-//
-//}
-//fun AppCompatImageView.loadSvg(url: String) {
-//    val imageLoader = ImageLoader.Builder(this.context)
-//        .componentRegistry { add(SvgDecoder(this@loadSvg.context)) }
-//        .build()
-//
-//    val request = ImageRequest.Builder(this.context)
-//        .crossfade(true)
-//        .crossfade(500)
-//        .data(url)
-//        .target(onSuccess = {img->})
-//        .build()
-//
-//
-//    imageLoader.enqueue(request)
-//}
 class ViewHolder(view: View, ItemListener: RecyclerAdapter.onItemClickListener) : RecyclerView.ViewHolder(view) {
     var currencyname: TextView = view.findViewById(R.id.currencyname)
     var symbol: ImageView = view.findViewById(R.id.imageView)
