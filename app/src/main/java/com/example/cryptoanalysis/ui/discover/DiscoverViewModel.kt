@@ -3,6 +3,8 @@ package com.example.cryptoanalysis.ui.discover
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.cryptoanalysis.Coin
+import com.example.cryptoanalysis.ResponseCoins
 import com.google.gson.JsonObject
 import io.reactivex.rxjava3.core.Observable
 
@@ -13,7 +15,8 @@ class DiscoverViewModel(var repo : DiscoverRepo) : ViewModel() {
 //    }
 //    val text: LiveData<String> = _text
 
-    fun getallAPIMoney(): Observable<JsonObject> {
-        return repo.getallAPIMoney()
+    fun getAllCoins(): Observable<ResponseCoins> {
+
+        return repo.getAllCoins()
     }
 }

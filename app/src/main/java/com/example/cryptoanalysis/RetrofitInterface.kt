@@ -27,9 +27,9 @@ interface RetrofitInterface {
 //   suspend fun insert(@Body requestBody: RequestBody) : Response<ResponseBody>
 
 
-    @GET("coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&orderBy=marketCap&orderDirection=desc&limit=20&offset=0")
+    @GET("coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&orderBy=marketCap&orderDirection=desc&limit=5&offset=0")
     @Headers("X-Rapidapi-Key: 870ba89cf6msh2b32fb922a04c36p1ab840jsn47d713b4fe85")
-    fun getAllCoins() : Observable<JsonObject>
+    fun getAllCoins() : Observable<ResponseCoins>
 
    companion object{
         var baseurl = "https://coinranking1.p.rapidapi.com/";
