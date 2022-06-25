@@ -3,9 +3,9 @@ package com.example.cryptoanalysis
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class Register : AppCompatActivity() {
+class settings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_settings)
     }
 }

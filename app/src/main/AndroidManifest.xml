@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cryptoanalysis">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,22 +16,23 @@
         android:theme="@style/Theme.CryptoAnalysis"
         tools:targetApi="31">
         <activity
+            android:name=".settings"
+            android:exported="false" />
+        <activity
             android:name=".MainpageActivity"
-            android:exported="false"
-            />
-<!--        android:label="@string/title_activity_mainpage"-->
+            android:exported="false" /> <!-- android:label="@string/title_activity_mainpage" -->
         <activity
             android:name=".SplashScreen"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".ForgetPassword"
+            android:name=".ui.view.ForgetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".ui.view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".ui.view.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
