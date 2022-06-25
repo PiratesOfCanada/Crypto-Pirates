@@ -18,7 +18,6 @@ import coil.load
 import coil.request.ImageRequest
 import com.example.cryptoanalysis.Coin
 import com.example.cryptoanalysis.R
-import com.squareup.picasso.Picasso
 
 class RecyclerAdapter(var DataSourse : ArrayList<Coin>, val context : Context):  RecyclerView.Adapter<ViewHolder>() {
 
