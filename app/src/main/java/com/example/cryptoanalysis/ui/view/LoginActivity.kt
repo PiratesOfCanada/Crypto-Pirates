@@ -30,8 +30,8 @@ class LoginActivity : AppCompatActivity() {
         db = Firebase.firestore
 
         binding.btnLogin.setOnClickListener {
-            val userName = binding.editTextUsernameLogin.text.toString()
-            val password = binding.editTextPassLogin.text.toString()
+            val userName = binding.username.text.toString()
+            val password = binding.password1.text.toString()
             if (userName.isNotEmpty() && password.isNotEmpty()) {
                 // Check if user is signed in (non-null) and update UI accordingly.
                 val currentUser = auth.currentUser
@@ -98,12 +98,12 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        binding.btnSignup.setOnClickListener {
+        binding.signup.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
-        binding.textViewForgetPasswordLogin.setOnClickListener {
+        binding.forgetpassword.setOnClickListener {
             val intent = Intent(this, ForgetPasswordActivity::class.java)
             startActivity(intent)
         }
