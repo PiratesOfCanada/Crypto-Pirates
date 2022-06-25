@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CryptoAnalysis</string>
+    <string name="title_activity_mainpage">MainpageActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_news">News</string>
+    <string name="Discover">Discover</string>
 </resources>
