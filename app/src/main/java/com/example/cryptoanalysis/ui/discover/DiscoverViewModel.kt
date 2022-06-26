@@ -6,9 +6,12 @@ import androidx.lifecycle.ViewModel
 import com.example.cryptoanalysis.Coin
 import com.example.cryptoanalysis.ResponseCoins
 import com.google.gson.JsonObject
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
+import javax.inject.Inject
 
-class DiscoverViewModel(var repo : DiscoverRepo) : ViewModel() {
+@HiltViewModel
+class DiscoverViewModel @Inject constructor (var repo : DiscoverRepo) : ViewModel() {
 
 //    private val _text = MutableLiveData<String>().apply {
 //        value = "This is dashboard Fragment"
