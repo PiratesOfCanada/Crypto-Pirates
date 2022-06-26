@@ -1,21 +1,24 @@
 package com.example.cryptoanalysis.ui.home
 
-import android.R
+
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SimpleAdapter
+
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
+
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoanalysis.Coin
 import com.example.cryptoanalysis.databinding.FragmentHomeBinding
+import com.example.cryptoanalysis.ui.discover.DiscoverViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -23,15 +26,12 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
+    val homeViewModel : HomeViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -50,27 +50,7 @@ class HomeFragment : Fragment() {
 
         })
         recyclerview.adapter = RecyclerAdapter
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
 
-
-//        for(i in 0..10){
-//            val map: HashMap<String, String> = HashMap()
-//            map["line1"] = "Foo $i"
-//            map["line2"] = "Bar $i"
-//            list.add(map)
-//        }
-//        val from = arrayOf("line1", "line2")
-//        val to = intArrayOf(R.id.text1, R.id.text2)
-//        val adapter  = SimpleAdapter(
-//            requireContext(), list,
-//            R.layout.simple_list_item_2, from, to
-//        )
-//        //setListAdapter(adapter)
-//
-//        RecyclerView.Adapter = adapter
 
         return root
     }
