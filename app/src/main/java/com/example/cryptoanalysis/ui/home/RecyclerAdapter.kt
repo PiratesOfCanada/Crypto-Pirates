@@ -36,6 +36,15 @@ class RecyclerAdapter(var DataSourse : ArrayList<Coin>, val context : Context): 
         return ViewHolder(view, ItemListener)
     }
 
+
+    ///********update recycler view after search
+    fun updateData(dataItem: ArrayList<Coin>){
+        DataSourse = dataItem
+        notifyDataSetChanged()
+    }
+
+
+
 //    @SuppressLint("Range")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemVH = DataSourse[position]
