@@ -32,12 +32,13 @@ import kotlin.collections.ArrayList
 class DiscoverFragment : Fragment() {
 
     private var _binding: FragmentDiscoverBinding? = null
+    var list = ArrayList<Coin>()
+    lateinit var recyclerAdapter: RecyclerAdapter
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    var list = ArrayList<Coin>()
-    lateinit var recyclerAdapter: RecyclerAdapter
     val vm : DiscoverViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,17 +56,15 @@ class DiscoverFragment : Fragment() {
 //            textView.text = it
 //        }
 
-        val api = RetrofitInterface.create()
-        val repo = DiscoverRepo(api)
-        val vm = DiscoverViewModel(repo)
-
+       // val api = RetrofitInterface.create()
+      //  val repo = DiscoverRepo(api)
+       // val vm = DiscoverViewModel(repo)
+       recyclerAdapter =  RecyclerAdapter(list, requireContext())
        // val api =  RetrofitInterface.create()
         //val repo = DiscoverRepo(api)
+           searchCoin()
 
-        val list = ArrayList<Coin>()
-        var recyclerAdapter: RecyclerAdapter = RecyclerAdapter(list, requireContext())
 
-        val recyclerview: RecyclerView = binding.recyclerview
         recyclerAdapter = RecyclerAdapter(list, requireContext())
         val recyclerview : RecyclerView = binding.recyclerview
         recyclerview.layoutManager = LinearLayoutManager(requireContext())
@@ -109,8 +108,8 @@ class DiscoverFragment : Fragment() {
 
 
     lateinit var searchText :String
-             var list = ArrayList<Coin>()
-             var recyclerAdapter: RecyclerAdapter = RecyclerAdapter(list, requireContext())
+             //var list = ArrayList<Coin>()
+            // var recyclerAdapter: RecyclerAdapter = RecyclerAdapter(list, requireContext())
 
     fun searchCoin() {
         binding.searchEditText.addTextChangedListener(object : TextWatcher {
@@ -125,6 +124,7 @@ class DiscoverFragment : Fragment() {
             override fun afterTextChanged(s: Editable?) {
                 searchText = s.toString().lowercase()
                 updateRecyclerView()
+                //recyclerAdapter.setItem()
             }
 
         })
@@ -142,7 +142,8 @@ class DiscoverFragment : Fragment() {
                 data.add(item)
             }
         }
-        recyclerAdapter.updateData(data)
+       // recyclerAdapter.updateData(data)
+        recyclerAdapter.setItem(data)
 
 
     }

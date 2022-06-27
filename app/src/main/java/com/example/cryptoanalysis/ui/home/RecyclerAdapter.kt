@@ -37,12 +37,12 @@ class RecyclerAdapter(var DataSourse : ArrayList<Coin>, val context : Context): 
     }
 
 
-    ///********update recycler view after search
-    fun updateData(dataItem: ArrayList<Coin>){
-        DataSourse = dataItem
-        notifyDataSetChanged()
-    }
-
+//    ///********update recycler view after search
+//    fun updateData(dataItem: ArrayList<Coin>){
+//        DataSourse = dataItem
+//        notifyDataSetChanged()
+//    }
+//
 
 
 //    @SuppressLint("Range")
