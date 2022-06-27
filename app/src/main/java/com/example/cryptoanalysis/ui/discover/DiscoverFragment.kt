@@ -95,11 +95,11 @@ class DiscoverFragment : Fragment() {
     ///////*****************************
 
 
-    lateinit var searchText: String
-    val list = ArrayList<Coin>()
-    var recyclerAdapter: RecyclerAdapter = RecyclerAdapter(list, requireContext())
+    lateinit var searchText :String
+             var list = ArrayList<Coin>()
+             var recyclerAdapter: RecyclerAdapter = RecyclerAdapter(list, requireContext())
 
-    private fun searchCoin() {
+    fun searchCoin() {
         binding.searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
@@ -110,10 +110,10 @@ class DiscoverFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                searchText = s.toString().toLowerCase()
-
+                searchText = s.toString().lowercase()
                 updateRecyclerView()
             }
+
         })
     }
 
