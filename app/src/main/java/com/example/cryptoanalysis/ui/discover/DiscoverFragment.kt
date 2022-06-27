@@ -32,6 +32,8 @@ class DiscoverFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    var list = ArrayList<Coin>()
+    lateinit var recyclerAdapter: RecyclerAdapter
     val vm : DiscoverViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,8 +54,7 @@ class DiscoverFragment : Fragment() {
        // val api =  RetrofitInterface.create()
         //val repo = DiscoverRepo(api)
 
-        val list = ArrayList<Coin>()
-        var recyclerAdapter: RecyclerAdapter = RecyclerAdapter(list, requireContext())
+        recyclerAdapter = RecyclerAdapter(list, requireContext())
         val recyclerview : RecyclerView = binding.recyclerview
         recyclerview.layoutManager = LinearLayoutManager(requireContext())
         recyclerAdapter.setItemListener(object : RecyclerAdapter.onItemClickListener{
@@ -69,7 +70,8 @@ class DiscoverFragment : Fragment() {
             .subscribeBy (
                 onNext = {
 //                    println("ResponseCoins:: $it")
-                    recyclerAdapter.setItem(it.data.coins as java.util.ArrayList<Coin>)
+                    list = it.data.coins as java.util.ArrayList<Coin>
+                    recyclerAdapter.setItem(list)
 
                 },
                 onComplete ={
@@ -81,8 +83,6 @@ class DiscoverFragment : Fragment() {
                         e -> println("error :: $e")
                 }
             )
-
-
         return root
     }
 

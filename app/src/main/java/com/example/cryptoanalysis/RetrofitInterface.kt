@@ -41,7 +41,7 @@ object ApiModule {
 
 interface RetrofitInterface {
 
-    @GET("coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&orderBy=marketCap&orderDirection=desc&limit=5&offset=0")
+    @GET("coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&orderBy=marketCap&orderDirection=desc&limit=100&offset=0")
     @Headers("X-Rapidapi-Key: 870ba89cf6msh2b32fb922a04c36p1ab840jsn47d713b4fe85")
     fun getAllCoins() : Observable<ResponseCoins>
 
