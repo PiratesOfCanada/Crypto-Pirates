@@ -9,19 +9,26 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoanalysis.Coin
 import com.example.cryptoanalysis.RetrofitInterface
 import com.example.cryptoanalysis.databinding.FragmentDiscoverBinding
 import com.example.cryptoanalysis.ui.home.RecyclerAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.*
 import kotlin.collections.ArrayList
 
+@AndroidEntryPoint
 class DiscoverFragment : Fragment() {
 
     private var _binding: FragmentDiscoverBinding? = null
@@ -29,7 +36,7 @@ class DiscoverFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
+    val vm : DiscoverViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,6 +56,9 @@ class DiscoverFragment : Fragment() {
         val api = RetrofitInterface.create()
         val repo = DiscoverRepo(api)
         val vm = DiscoverViewModel(repo)
+
+       // val api =  RetrofitInterface.create()
+        //val repo = DiscoverRepo(api)
 
         val list = ArrayList<Coin>()
         var recyclerAdapter: RecyclerAdapter = RecyclerAdapter(list, requireContext())
