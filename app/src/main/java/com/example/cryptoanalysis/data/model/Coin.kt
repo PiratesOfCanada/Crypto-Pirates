@@ -1,4 +1,4 @@
-package com.example.cryptoanalysis
+package com.example.cryptoanalysis.data.model
 
 data class Coin(val symbol: String = "",
                 val marketCap: String = "",

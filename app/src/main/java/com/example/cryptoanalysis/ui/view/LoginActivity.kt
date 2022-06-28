@@ -5,12 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.cryptoanalysis.MainActivity
-import com.example.cryptoanalysis.R
 import com.example.cryptoanalysis.databinding.ActivityLoginBinding
-import com.google.android.gms.tasks.OnCompleteListener
+import com.example.cryptoanalysis.utils.AccessToken
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GetTokenResult
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -28,58 +25,44 @@ class LoginActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         db = Firebase.firestore
+        // Check if user is signed in (non-null) and update UI accordingly.
+        var currentUser = auth.currentUser
 
+        //update the access token
+        currentUser?.getIdToken(true)?.addOnCompleteListener {
+            if (it.isSuccessful) {
+                AccessToken.accessToken = it.result.token
+            } else {
+                println("Error accessing token.")
+            }
+        }
+
+        if (currentUser != null) {
+//                    db.collection("users")
+//                        .get()
+//                        .addOnSuccessListener { result ->
+//                            for (document in result) {
+//                                Log.d(TAG, "${document.id} => ${document.data}")
+//                            }
+//                        }
+//                        .addOnFailureListener { exception ->
+//                            Log.w(TAG, "Error getting documents.", exception)
+//                        }
+
+            val intent = Intent(this, MainpageActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnLogin.setOnClickListener {
             val userName = binding.username.text.toString()
             val password = binding.password1.text.toString()
             if (userName.isNotEmpty() && password.isNotEmpty()) {
-                // Check if user is signed in (non-null) and update UI accordingly.
-                val currentUser = auth.currentUser
-
-
-                var token: String? = ""
-
-
-
-
-
-
-                currentUser?.getIdToken(true)?.addOnCompleteListener {
-                    if(it.isSuccessful) {
-                        token = it.getResult().token
-                        println(token)
-                    }
-                    else {
-                        println("Error===========================")
-                    }
-                }
-
-
-
-
-
-
-
-                if (currentUser != null) {
-                    db.collection("users")
-                        .get()
-                        .addOnSuccessListener { result ->
-                            for (document in result) {
-                                Log.d(TAG, "${document.id} => ${document.data}")
-                            }
-                        }
-                        .addOnFailureListener { exception ->
-                            Log.w(TAG, "Error getting documents.", exception)
-                        }
-                    // reload();
-                }
-
                 auth.signInWithEmailAndPassword(userName, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
+                            currentUser = auth.currentUser
                             // Sign in success, update UI with the signed-in user's information
                             if (currentUser?.isEmailVerified == true) {
-                                val intent = Intent(this, MainActivity::class.java)
+                                val intent = Intent(this, MainpageActivity::class.java)
                                 Log.d(TAG, "signInWithEmail:success")
                                 startActivity(intent)
                             } else {
@@ -89,10 +72,9 @@ class LoginActivity : AppCompatActivity() {
                             // If sign in fails, display a message to the user.
                             Log.w(
                                 TAG,
-                                "signInWithEmail:failure --- Reason: ${task.exception?.message}",
+                                "signInWithEmail:failure: ${task.exception?.message}",
                                 task.exception
                             )
-                            //                    updateUI(null)
                         }
                     }
             }
