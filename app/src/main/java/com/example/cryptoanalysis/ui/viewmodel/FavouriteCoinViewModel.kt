@@ -8,7 +8,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import okhttp3.RequestBody
 
 class FavouriteCoinViewModel(private val repo: FavouriteCoinRepository): ViewModel() {
     var favouriteCoinList = MutableLiveData<List<FavouriteCoin>>()

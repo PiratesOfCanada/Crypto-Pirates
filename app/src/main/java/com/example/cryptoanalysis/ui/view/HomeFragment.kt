@@ -9,15 +9,14 @@ import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.databinding.FragmentHomeBinding
 import com.example.cryptoanalysis.ui.viewmodel.HomeViewModel
-import com.example.cryptoanalysis.ui.home.RecyclerAdapter
-import com.example.cryptoanalysis.ui.discover.DiscoverViewModel
+import com.example.cryptoanalysis.ui.adapters.RecyclerAdapter
+//import com.example.cryptoanalysis.ui.discover.DiscoverViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

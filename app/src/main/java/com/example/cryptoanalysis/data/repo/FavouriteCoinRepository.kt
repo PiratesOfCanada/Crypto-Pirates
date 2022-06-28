@@ -1,7 +1,6 @@
 package com.example.cryptoanalysis.data.repo
 
 import com.example.cryptoanalysis.data.api.FavCoinRetroApiInterface
-import okhttp3.RequestBody
 
 class FavouriteCoinRepository(private val inter: FavCoinRetroApiInterface) {
     suspend fun getAllFavouriteCoins() = inter.getFavouriteCoins()
