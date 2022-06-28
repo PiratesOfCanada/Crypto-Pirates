@@ -33,41 +33,42 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun registerUser() {
         with(binding) {
-            val _username = name.text.toString()
-            val _email = email.text.toString()
-            val _password = password.text.toString()
+            val userNameT = name.text.toString()
+            val emailT = email.text.toString()
+            val passwordT = password.text.toString()
 
             // check validation
             when {
-                _username.isEmpty() -> {
+                userNameT.isEmpty() -> {
                     name.error = "this field is required"
                     name.requestFocus()
                 }
-                _email.isEmpty() -> {
+                emailT.isEmpty() -> {
                     email.error = "this field is required"
                     email.requestFocus()
                 }
-                _password.isEmpty() -> {
+                passwordT.isEmpty() -> {
                     password.error = "this field is required"
                     password.requestFocus()
                 }
-                _password.length < 6 -> {
+                passwordT.length < 6 -> {
                     password.error = "password at least 6 character"
                     password.requestFocus()
                 }
                 else -> {
                     //                binding.progressBar.visibility = View.VISIBLE
                     //                binding.btnRegister.visibility = View.INVISIBLE
-                    auth.createUserWithEmailAndPassword(_email, _password)
+                    auth.createUserWithEmailAndPassword(emailT, passwordT)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
 
                                 auth.currentUser?.sendEmailVerification()?.addOnCompleteListener {
                                     // register success, store data
+                                    // hardcoded at the moment
                                     val user = User(
-                                        "sabiran",
-                                        "thapa",
-                                        _email,
+                                        "someone",
+                                        "somewhere",
+                                        emailT,
                                         12345675,
                                         "somewhere in canada"
                                     )

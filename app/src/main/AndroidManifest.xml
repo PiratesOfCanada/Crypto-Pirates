@@ -20,10 +20,12 @@
             android:name=".settings"
             android:exported="false" />
         <activity
-            android:name=".MainpageActivity"
-            android:exported="false" /> <!-- android:label="@string/title_activity_mainpage" -->
+            android:name=".ui.view.MainpageActivity"
+            android:exported="false"
+            />
+<!--        android:label="@string/title_activity_mainpage"-->
         <activity
-            android:name=".SplashScreen"
+            android:name=".ui.view.SplashScreen"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

@@ -1,5 +1,6 @@
-package com.example.cryptoanalysis
+package com.example.cryptoanalysis.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -7,17 +8,18 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.cryptoanalysis.R
 import com.example.cryptoanalysis.databinding.MainpageBinding
 import dagger.hilt.android.AndroidEntryPoint
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @AndroidEntryPoint
 class MainpageActivity : AppCompatActivity() {
-
     private lateinit var binding: MainpageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = MainpageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -33,5 +35,11 @@ class MainpageActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        binding.btnLogout.setOnClickListener {
+            Firebase.auth.signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
