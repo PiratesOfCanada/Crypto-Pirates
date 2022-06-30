@@ -1,10 +1,10 @@
-package com.example.cryptoanalysis.ui.viewmodel
+package com.example.cryptoanalysis.ui.news
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class NewsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is notifications Fragment"

@@ -1,8 +1,7 @@
-package com.example.cryptoanalysis.ui.view
+package com.example.cryptoanalysis
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.cryptoanalysis.R
 
 class settings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

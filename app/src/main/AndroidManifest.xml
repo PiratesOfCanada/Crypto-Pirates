@@ -17,15 +17,13 @@
         android:theme="@style/Theme.CryptoAnalysis"
         tools:targetApi="31">
         <activity
-            android:name=".ui.view.settings"
+            android:name=".settings"
             android:exported="false" />
         <activity
-            android:name=".ui.view.MainpageActivity"
-            android:exported="false"
-            />
-<!--        android:label="@string/title_activity_mainpage"-->
+            android:name=".MainpageActivity"
+            android:exported="false" /> <!-- android:label="@string/title_activity_mainpage" -->
         <activity
-            android:name=".ui.view.SplashScreen"
+            android:name=".SplashScreen"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

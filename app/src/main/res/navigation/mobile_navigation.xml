@@ -7,20 +7,20 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.cryptoanalysis.ui.view.HomeFragment"
+        android:name="com.example.cryptoanalysis.ui.home.HomeFragment"
 
         tools:layout="@layout/fragment_home" />
 <!--    android:label="@string/title_home"-->
     <fragment
         android:id="@+id/navigation_discover"
-        android:name="com.example.cryptoanalysis.ui.view.DiscoverFragment"
+        android:name="com.example.cryptoanalysis.ui.discover.DiscoverFragment"
 
         tools:layout="@layout/fragment_discover" />
 <!--    android:label="@string/Discover"-->
     <fragment
         android:id="@+id/navigation_news"
-        android:name="com.example.cryptoanalysis.ui.view.NotificationsFragment"
+        android:name="com.example.cryptoanalysis.ui.news.NewsFragment"
 
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_news" />
 <!--    android:label="@string/title_news"-->
 </navigation>

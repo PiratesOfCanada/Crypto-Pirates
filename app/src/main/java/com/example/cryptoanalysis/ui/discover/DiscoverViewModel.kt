@@ -1,7 +1,8 @@
-package com.example.cryptoanalysis.ui.viewmodel
+package com.example.cryptoanalysis.ui.discover
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.cryptoanalysis.data.api.DiscoverRepo
+import com.example.cryptoanalysis.Api
 import com.example.cryptoanalysis.data.model.ResponseCoins
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
@@ -15,8 +16,9 @@ class DiscoverViewModel @Inject constructor (var repo : DiscoverRepo) : ViewMode
 //    }
 //    val text: LiveData<String> = _text
 
-    fun getAllCoins(): Observable<ResponseCoins> {
-
-        return repo.getAllCoins()
+    fun getAllCoins(limit:Int, offset:Int): Observable<ResponseCoins> {
+        Api.seturl("https://coinranking1.p.rapidapi.com/")
+        Log.d("Retrofit: vm ", "${Api.geturl()}")
+        return repo.getAllCoins(limit, offset )
     }
 }

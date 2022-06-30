@@ -1,4 +1,4 @@
-package com.example.cryptoanalysis.ui.view
+package com.example.cryptoanalysis.ui.home
 
 
 import android.os.Bundle
@@ -14,9 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.databinding.FragmentHomeBinding
-import com.example.cryptoanalysis.ui.viewmodel.HomeViewModel
-import com.example.cryptoanalysis.ui.adapters.RecyclerAdapter
-//import com.example.cryptoanalysis.ui.discover.DiscoverViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,7 +41,7 @@ class HomeFragment : Fragment() {
         recyclerview.layoutManager = LinearLayoutManager(requireContext())
         val RecyclerAdapter = RecyclerAdapter(list, requireContext())
 
-        RecyclerAdapter.setItemListener(object : RecyclerAdapter.onItemClickListener {
+        RecyclerAdapter.setItemListener(object : RecyclerAdapter.onItemClickListener{
             override fun onClickListener(position: Int) {
                 Log.d("Clicked", "element - ${list[position]}")
             }
