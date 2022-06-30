@@ -1,20 +1,17 @@
-package com.example.cryptoanalysis
+package com.example.cryptoanalysis.data.api
 
 
-import com.example.cryptoanalysis.ui.discover.DiscoverRepo
-
+import com.example.cryptoanalysis.data.model.ResponseCoins
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.reactivex.rxjava3.core.Observable
-
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 import javax.inject.Singleton
-
 
 @Module
 @InstallIn(SingletonComponent::class)

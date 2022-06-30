@@ -1,6 +1,5 @@
-package com.example.cryptoanalysis.ui.home
+package com.example.cryptoanalysis.ui.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -9,14 +8,12 @@ import android.view.ViewGroup
 
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import coil.ImageLoader
 import coil.decode.SvgDecoder
-import coil.load
 import coil.request.ImageRequest
-import com.example.cryptoanalysis.Coin
+import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.R
 
 class RecyclerAdapter(var DataSourse : ArrayList<Coin>, val context : Context):  RecyclerView.Adapter<ViewHolder>() {
@@ -49,9 +46,9 @@ class RecyclerAdapter(var DataSourse : ArrayList<Coin>, val context : Context): 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemVH = DataSourse[position]
         holder.currencyname.text = itemVH.name
-        holder.currencyname.setTextColor( Color.parseColor(itemVH.color))
+//        holder.currencyname.setTextColor( Color.parseColor(itemVH.color))
        holder.price.text = "$ " + itemVH.price.toString()
-        holder.price.setTextColor( Color.parseColor(itemVH.color))
+//        holder.price.setTextColor( Color.parseColor(itemVH.color))
 
     //to load svg file
     holder.symbol.loadUrl(itemVH.iconUrl)
