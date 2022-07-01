@@ -1,24 +1,19 @@
-package com.example.cryptoanalysis.ui.news
+package com.example.cryptoanalysis.ui.view
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.ArrayAdapter
-import android.widget.SimpleAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cryptoanalysis.R
 import com.example.cryptoanalysis.data.model.ArticlesItem
-import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.databinding.FragmentNewsBinding
 import com.example.cryptoanalysis.ui.home.NewsAdapter
 
-import com.example.cryptoanalysis.ui.home.RecyclerAdapter
+import com.example.cryptoanalysis.ui.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

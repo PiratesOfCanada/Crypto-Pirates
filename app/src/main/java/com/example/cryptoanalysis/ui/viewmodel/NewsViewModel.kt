@@ -1,4 +1,4 @@
-package com.example.cryptoanalysis.ui.news
+package com.example.cryptoanalysis.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

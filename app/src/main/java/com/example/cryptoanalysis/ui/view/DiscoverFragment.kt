@@ -1,4 +1,4 @@
-package com.example.cryptoanalysis.ui.discover
+package com.example.cryptoanalysis.ui.view
 
 
 
@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoanalysis.Api
 import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.databinding.FragmentDiscoverBinding
+import com.example.cryptoanalysis.ui.viewmodel.DiscoverViewModel
 import com.example.cryptoanalysis.ui.home.RecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers

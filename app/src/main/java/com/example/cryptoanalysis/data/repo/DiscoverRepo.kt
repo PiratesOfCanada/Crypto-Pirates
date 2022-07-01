@@ -1,4 +1,4 @@
-package com.example.cryptoanalysis.ui.discover
+package com.example.cryptoanalysis.data.repo
 
 import android.util.Log
 import com.example.cryptoanalysis.Api

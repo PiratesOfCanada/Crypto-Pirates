@@ -4,7 +4,8 @@ package com.example.cryptoanalysis
 import android.util.Log
 import com.example.cryptoanalysis.data.model.ResponseCoins
 import com.example.cryptoanalysis.data.model.ResponseNews
-import com.example.cryptoanalysis.ui.discover.DiscoverRepo
+import com.example.cryptoanalysis.data.repo.NewsRepo
+import com.example.cryptoanalysis.data.repo.DiscoverRepo
 
 import dagger.Module
 import dagger.Provides
