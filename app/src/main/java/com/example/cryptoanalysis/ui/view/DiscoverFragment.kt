@@ -13,11 +13,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cryptoanalysis.Api
+import com.example.cryptoanalysis.data.api.Api
 import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.databinding.FragmentDiscoverBinding
 import com.example.cryptoanalysis.ui.viewmodel.DiscoverViewModel
-import com.example.cryptoanalysis.ui.home.RecyclerAdapter
+import com.example.cryptoanalysis.ui.adapters.RecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy

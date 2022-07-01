@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.databinding.FragmentHomeBinding
 import com.example.cryptoanalysis.ui.viewmodel.HomeViewModel
-import com.example.cryptoanalysis.ui.home.RecyclerAdapter
+import com.example.cryptoanalysis.ui.adapters.RecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

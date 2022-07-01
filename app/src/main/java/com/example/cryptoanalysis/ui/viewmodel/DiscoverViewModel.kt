@@ -2,7 +2,7 @@ package com.example.cryptoanalysis.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.cryptoanalysis.Api
+import com.example.cryptoanalysis.data.api.Api
 import com.example.cryptoanalysis.data.model.ResponseCoins
 import com.example.cryptoanalysis.data.repo.DiscoverRepo
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,4 +1,4 @@
-package com.example.cryptoanalysis
+package com.example.cryptoanalysis.data.api
 
 
 import android.util.Log
@@ -25,7 +25,7 @@ object Api {
         BASE_URL = url
     }
     fun geturl(): String {
-        return this.BASE_URL
+        return BASE_URL
     }
 }
 @Module

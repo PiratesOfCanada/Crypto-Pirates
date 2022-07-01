@@ -1,8 +1,6 @@
 package com.example.cryptoanalysis.data.repo
 
-import android.util.Log
-import com.example.cryptoanalysis.Api
-import com.example.cryptoanalysis.RetrofitInterface
+import com.example.cryptoanalysis.data.api.RetrofitInterface
 
 class DiscoverRepo(var inter : RetrofitInterface)
 {

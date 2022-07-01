@@ -1,4 +1,4 @@
-package com.example.cryptoanalysis.ui.home
+package com.example.cryptoanalysis.ui.adapters
 
 import android.content.Context
 import android.graphics.Color
