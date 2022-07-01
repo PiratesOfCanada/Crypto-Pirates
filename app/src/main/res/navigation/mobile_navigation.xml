@@ -19,8 +19,8 @@
 <!--    android:label="@string/Discover"-->
     <fragment
         android:id="@+id/navigation_news"
-        android:name="com.example.cryptoanalysis.ui.view.NotificationsFragment"
+        android:name="com.example.cryptoanalysis.ui.view.NewsFragment"
 
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_news" />
 <!--    android:label="@string/title_news"-->
 </navigation>

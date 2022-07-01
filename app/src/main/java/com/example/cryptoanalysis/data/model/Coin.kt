@@ -2,7 +2,7 @@ package com.example.cryptoanalysis.data.model
 
 data class Coin(val symbol: String = "",
                 val marketCap: String = "",
-                val color: String = "",
+                val color: String = "#000000",
                 val change: String = "",
                 val btcPrice: String = "",
                 val listedAt: Int = 0,

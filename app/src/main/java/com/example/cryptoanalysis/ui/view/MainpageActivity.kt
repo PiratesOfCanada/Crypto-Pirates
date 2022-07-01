@@ -10,16 +10,18 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.cryptoanalysis.R
 import com.example.cryptoanalysis.databinding.MainpageBinding
-import dagger.hilt.android.AndroidEntryPoint
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainpageActivity : AppCompatActivity() {
+
     private lateinit var binding: MainpageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = MainpageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

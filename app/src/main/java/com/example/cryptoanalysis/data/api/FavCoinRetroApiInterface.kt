@@ -49,6 +49,6 @@ class OAuthInterceptor(private val tokenType: String, private val accessToken: S
     }
 }
 
-class DiscoverRepo(var inter : RetrofitInterface) {
-    fun getAllCoins() = inter.getAllCoins()
-}
+//class DiscoverRepo(var inter : RetrofitInterface) {
+//    fun getAllCoins() = inter.getAllCoins()
+//}

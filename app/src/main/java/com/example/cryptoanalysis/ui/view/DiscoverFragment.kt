@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cryptoanalysis.data.api.Api
 import com.example.cryptoanalysis.data.model.Coin
-//import com.example.cryptoanalysis.data.api.RetrofitInterface
 import com.example.cryptoanalysis.databinding.FragmentDiscoverBinding
 import com.example.cryptoanalysis.ui.viewmodel.DiscoverViewModel
 import com.example.cryptoanalysis.ui.adapters.RecyclerAdapter
@@ -31,7 +31,8 @@ class DiscoverFragment : Fragment() {
     private var _binding: FragmentDiscoverBinding? = null
     var list = ArrayList<Coin>()
     lateinit var recyclerAdapter: RecyclerAdapter
-
+    var limit = 8
+    var offset= 0
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -42,25 +43,12 @@ class DiscoverFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        val dashboardViewModel =
-//            ViewModelProvider(this).get(DiscoverViewModel::class.java)
 
         _binding = FragmentDiscoverBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textDashboard
-//        dashboardViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
-
-       // val api = RetrofitInterface.create()
-      //  val repo = DiscoverRepo(api)
-       // val vm = DiscoverViewModel(repo)
        recyclerAdapter =  RecyclerAdapter(list, requireContext())
-       // val api =  RetrofitInterface.create()
-        //val repo = DiscoverRepo(api)
-           searchCoin()
-
+         searchCoin()
 
         recyclerAdapter = RecyclerAdapter(list, requireContext())
         val recyclerview : RecyclerView = binding.recyclerview
@@ -69,10 +57,16 @@ class DiscoverFragment : Fragment() {
             override fun onClickListener(position: Int) {
                 Log.d("Clicked", "element - ${list[position]}")
             }
-
         })
         recyclerview.adapter = recyclerAdapter
-        vm.getAllCoins()
+        Api.seturl("https://coinranking1.p.rapidapi.com/")
+        Log.d("Retrofit: fragement ", "${Api.geturl()}")
+        LoadData(limit,offset)
+        return root
+    }
+
+    private fun LoadData(limit: Int, offset: Int) {
+        vm.getAllCoins(limit, offset)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
@@ -91,7 +85,6 @@ class DiscoverFragment : Fragment() {
                     println("error :: $e")
                 }
             )
-        return root
     }
 
 

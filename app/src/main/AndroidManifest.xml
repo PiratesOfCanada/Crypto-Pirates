@@ -21,9 +21,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.view.MainpageActivity"
-            android:exported="false"
-            />
-<!--        android:label="@string/title_activity_mainpage"-->
+            android:exported="false" /> <!-- android:label="@string/title_activity_mainpage" -->
         <activity
             android:name=".ui.view.SplashScreen"
             android:exported="false"
