@@ -25,6 +25,10 @@ class ForgetPasswordActivity : AppCompatActivity() {
         binding.resetpassword.setOnClickListener {
             resetPassword()
         }
+
+        binding.loginhere.setOnClickListener {
+            finish()
+        }
     }
 
     private fun resetPassword() {

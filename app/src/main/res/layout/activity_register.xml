@@ -90,7 +90,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/btnRegister"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/btnRegister"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
@@ -151,5 +151,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/undraw_data_report_re_p4so" />
+
+    <Button
+        android:id="@+id/forget_loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        app:layout_constraintStart_toEndOf="@+id/alreadyhaveaccount"
+        app:layout_constraintTop_toTopOf="@+id/alreadyhaveaccount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

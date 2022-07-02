@@ -29,6 +29,10 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener {
             registerUser()
         }
+
+        binding.forgetLoginBtn.setOnClickListener {
+            finish()
+        }
     }
 
     private fun registerUser() {
