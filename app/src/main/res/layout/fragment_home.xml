@@ -13,7 +13,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="Watch List"
+        android:text="@string/watchlist"
         android:textColor="@color/gold"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
