@@ -76,7 +76,7 @@ interface RetrofitInterface {
 interface NewsInterface {
     //https://api.goperigon.com/v1/all?source=cnn.com&sortBy=date&apiKey=ae2b2187-86cb-4da4-bf48-e413951b0f42&topic=Cryptocurrency&from=2022-01-01T00:00:00
     // var baseurl = "https://crypto-news15.p.rapidapi.com";
-    @GET("/v1/all?source=cnn.com&sortBy=date&apiKey=ae2b2187-86cb-4da4-bf48-e413951b0f42&topic=Cryptocurrency&from=2022-01-01T00:00:00")
+    @GET("/v1/all?source=cnn.com&sortBy=date&apiKey=ae2b2187-86cb-4da4-bf48-e413951b0f42&topic=Cryptocurrency")
   //  @Headers("X-Rapidapi-Key: 16b1461be2msh515880f0029f0c3p1d5a8ejsne5376e712ac3")
     fun getAllNews() : Observable<ResponseNews>
 }

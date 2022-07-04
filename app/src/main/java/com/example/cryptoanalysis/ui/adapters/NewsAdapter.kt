@@ -15,6 +15,7 @@ import coil.request.ImageRequest
 import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.R
 import com.example.cryptoanalysis.data.model.ArticlesItem
+import com.squareup.picasso.Picasso
 
 class NewsAdapter(var DataSourse : ArrayList<ArticlesItem>, val context : Context):  RecyclerView.Adapter<NewsViewHolder>() {
 
@@ -37,37 +38,21 @@ class NewsAdapter(var DataSourse : ArrayList<ArticlesItem>, val context : Contex
         notifyDataSetChanged()
     }
 
-    fun ImageView.loadUrl(url: String) {
-
-        val imageLoader = ImageLoader.Builder(this.context)
-            .componentRegistry { add(SvgDecoder(this@loadUrl.context)) }
-            .build()
-
-        val request = ImageRequest.Builder(this.context)
-            .crossfade(true)
-            .crossfade(500)
-           // .placeholder(R.drawable.placeholder)
-           // .error(R.drawable.error)
-            .data(url)
-            .target(this)
-            .build()
-
-        imageLoader.enqueue(request)
-    }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val itemVH = DataSourse[position]
         holder.title.text = itemVH.title
-
-        //to load svg file
-        holder.image.loadUrl(itemVH.imageUrl)
+        Picasso.get().load(itemVH.imageUrl)
+            .resize(400, 400)
+            .centerCrop()
+            .rotate(0F) .into(holder.image)
+         //to load svg file
+        //holder.image.loadUrl(itemVH.imageUrl)
     }
 
     fun setItemListener(Listener: NewsAdapter.onItemClickListener){
         this.ItemListener = Listener;
     }
-
-
 }
 class NewsViewHolder(view: View, ItemListener: NewsAdapter.onItemClickListener) : RecyclerView.ViewHolder(view) {
     var title: TextView = view.findViewById(R.id.Title)
