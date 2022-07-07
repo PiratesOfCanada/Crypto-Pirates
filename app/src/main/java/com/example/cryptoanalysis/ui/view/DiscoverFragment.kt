@@ -2,6 +2,7 @@ package com.example.cryptoanalysis.ui.view
 
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -56,6 +57,12 @@ class DiscoverFragment : Fragment() {
         recyclerAdapter.setItemListener(object : RecyclerAdapter.onItemClickListener {
             override fun onClickListener(position: Int) {
                 Log.d("Clicked", "element - ${list[position]}")
+                val intent = Intent(requireContext(), CoinDetailPageActivity::class.java)
+                intent.putExtra("coinName",list[position].name)
+                intent.putExtra("coinURL",list[position].iconUrl)
+                intent.putExtra("coinSymbol",list[position].symbol)
+                intent.putExtra("textColor",list[position].color)
+                startActivity(intent)
             }
         })
         recyclerview.adapter = recyclerAdapter
@@ -134,8 +141,6 @@ class DiscoverFragment : Fragment() {
         }
        // recyclerAdapter.updateData(data)
         recyclerAdapter.setItem(data)
-
-
     }
 }
 
