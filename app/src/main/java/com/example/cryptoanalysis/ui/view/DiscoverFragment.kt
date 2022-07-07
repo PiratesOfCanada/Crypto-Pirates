@@ -58,10 +58,12 @@ class DiscoverFragment : Fragment() {
             override fun onClickListener(position: Int) {
                 Log.d("Clicked", "element - ${list[position]}")
                 val intent = Intent(requireContext(), CoinDetailPageActivity::class.java)
+
                 intent.putExtra("coinName",list[position].name)
                 intent.putExtra("coinURL",list[position].iconUrl)
                 intent.putExtra("coinSymbol",list[position].symbol)
                 intent.putExtra("textColor",list[position].color)
+
                 startActivity(intent)
             }
         })

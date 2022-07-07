@@ -7,6 +7,7 @@
     android:background="@drawable/background"
     tools:context=".ui.view.CoinDetailPageActivity">
 
+
     <TextView
         android:id="@+id/currencyname"
         android:layout_width="242dp"
@@ -21,6 +22,7 @@
         app:layout_constraintBottom_toTopOf="@+id/Btn15Min"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
+
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -29,10 +31,12 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="14dp"
         android:src="@drawable/bitcoin"
         app:layout_constraintBottom_toTopOf="@+id/Btn1Min"
+
         app:layout_constraintEnd_toStartOf="@+id/currencyname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

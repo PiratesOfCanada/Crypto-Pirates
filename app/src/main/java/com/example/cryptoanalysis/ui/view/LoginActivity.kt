@@ -2,6 +2,7 @@ package com.example.cryptoanalysis.ui.view
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,12 +17,15 @@ import com.google.firebase.ktx.Firebase
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore //Firestore Database/Cloud Firestore
-    lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityLoginBinding
+    private lateinit var preferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        preferences = getSharedPreferences("prefs", MODE_PRIVATE)
 
         auth = Firebase.auth
         db = Firebase.firestore
@@ -52,10 +56,31 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, MainpageActivity::class.java)
             startActivity(intent)
         }
+
+        if (preferences.getBoolean("isChecked", false)) {
+            binding.username.setText(preferences.getString("userName", ""))
+            binding.password1.setText(preferences.getString("password", ""))
+            binding.checkBox.isChecked = true
+        }
+
         binding.btnLogin.setOnClickListener {
             val userName = binding.username.text.toString()
             val password = binding.password1.text.toString()
             if (userName.isNotEmpty() && password.isNotEmpty()) {
+                val b = preferences.getBoolean("isChecked", false)
+                if (preferences.getBoolean("isChecked", false)) {
+                    with(preferences.edit()) {
+                        putString("userName", binding.username.text.toString())
+                        putString("password", binding.password1.text.toString())
+                        apply()
+                    }
+                } else {
+                    with(preferences.edit()) {
+                        preferences.edit().putString("userName", "")
+                        preferences.edit().putString("password", "")
+                        apply()
+                    }
+                }
                 auth.signInWithEmailAndPassword(userName, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
@@ -77,6 +102,13 @@ class LoginActivity : AppCompatActivity() {
                             )
                         }
                     }
+            }
+        }
+
+        binding.checkBox.setOnCheckedChangeListener { checkBox, isChecked ->
+            with(preferences.edit()) {
+                putBoolean("isChecked", isChecked)
+                apply()
             }
         }
 
