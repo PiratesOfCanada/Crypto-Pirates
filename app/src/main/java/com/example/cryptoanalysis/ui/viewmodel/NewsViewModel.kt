@@ -12,8 +12,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
-@HiltViewModel
-class NewsViewModel @Inject constructor(var repo: NewsRepo) : ViewModel() {
+
+class NewsViewModel constructor(var repo: NewsRepo) : ViewModel() {
 
     fun getAllNews(): Observable<ResponseNews> {
         Api.seturl("https://api.goperigon.com")

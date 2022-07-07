@@ -11,8 +11,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoanalysis.data.api.Api
+import com.example.cryptoanalysis.data.api.NewsInterface
 import com.example.cryptoanalysis.data.model.ArticlesItem
 import com.example.cryptoanalysis.data.model.Coin
+import com.example.cryptoanalysis.data.repo.NewsRepo
 import com.example.cryptoanalysis.databinding.FragmentNewsBinding
 import com.example.cryptoanalysis.ui.home.NewsAdapter
 
@@ -36,7 +38,9 @@ class NewsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val vm :NewsViewModel by viewModels()
+        val inter = NewsInterface.create()
+        val repo = NewsRepo(inter)
+        val vm =NewsViewModel(repo)
 
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -47,14 +51,13 @@ class NewsFragment : Fragment() {
 
         val RecyclerAdapter = NewsAdapter(list, requireContext())
         Api.seturl("https://api.goperigon.com")
-
-
+        Log.d("News fragement ", "${Api.geturl()}")
         vm.getAllNews()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onNext = {
-                    println("ResponseCoins:: $it")
+                    //println("ResponseCoins:: $it")
                     list =  it.articles as java.util.ArrayList<ArticlesItem>
                     RecyclerAdapter.setItem(list)
 
