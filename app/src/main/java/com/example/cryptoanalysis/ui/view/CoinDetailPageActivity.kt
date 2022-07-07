@@ -20,7 +20,6 @@ class CoinDetailPageActivity : AppCompatActivity() {
         val coinName = intent.getStringExtra("coinName").toString()
         val coinIcon = intent.getStringExtra("coinURL").toString()
         val coinSymbol = intent.getStringExtra("coinSymbol").toString()
-        val textColor = intent.getStringExtra("textcolor").toString()
 
         binding.imageView.loadUrl(coinIcon)
 
