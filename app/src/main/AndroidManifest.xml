@@ -20,6 +20,9 @@
             android:name=".ui.view.settings"
             android:exported="false" />
         <activity
+            android:name=".ui.view.CoinDetailPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.view.MainpageActivity"
             android:exported="false" /> <!-- android:label="@string/title_activity_mainpage" -->
         <activity
