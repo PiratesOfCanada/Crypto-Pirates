@@ -66,7 +66,6 @@ class CoinDetailPageActivity : AppCompatActivity() {
                     "USD&interval=" + s + "&hidesidetoolbar=1&hidetoptoolbar=1&symboledit=1&saveimage=1&toolbarbg=" +
                     "F1F3F6&studies=[]&hideideas=1&theme=Dark&style=1&timezone=Etc%2FUTC&studies_overrides={}&overrides={}&enabled_features=" +
                     "[]&disabled_features=[]&locale=en&utm_source=coinmarketcap.com&utm_medium=widget&utm_campaing=chart&utm_term=BTCUSDT"
-
         )
     }
 
@@ -79,8 +78,6 @@ class CoinDetailPageActivity : AppCompatActivity() {
         val request = ImageRequest.Builder(this.context)
             .crossfade(true)
             .crossfade(500)
-            // .placeholder(R.drawable.placeholder)
-            // .error(R.drawable.error)
             .data(url)
             .target(this)
             .build()
