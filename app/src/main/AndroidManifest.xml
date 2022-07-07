@@ -17,7 +17,7 @@
         android:theme="@style/Theme.CryptoAnalysis"
         tools:targetApi="31">
         <activity
-            android:name=".ui.view.settings"
+            android:name=".ui.view.Settings"
             android:exported="false" />
         <activity
             android:name=".ui.view.CoinDetailPageActivity"

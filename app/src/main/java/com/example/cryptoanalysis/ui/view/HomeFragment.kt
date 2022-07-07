@@ -1,6 +1,7 @@
 package com.example.cryptoanalysis.ui.view
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -65,7 +66,10 @@ class HomeFragment : Fragment() {
         }
 
         vm.getAllFavouriteCoins()
-
+        binding.settingsButton.setOnClickListener(){
+            val intent= Intent(requireContext(), Settings::class.java)
+            startActivity(intent)
+        }
         return root
     }
 
