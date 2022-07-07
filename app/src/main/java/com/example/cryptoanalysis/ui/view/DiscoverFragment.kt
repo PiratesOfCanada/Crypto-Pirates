@@ -2,6 +2,7 @@ package com.example.cryptoanalysis.ui.view
 
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -56,6 +57,8 @@ class DiscoverFragment : Fragment() {
         recyclerAdapter.setItemListener(object : RecyclerAdapter.onItemClickListener {
             override fun onClickListener(position: Int) {
                 Log.d("Clicked", "element - ${list[position]}")
+                val intent = Intent(requireContext(), CoinDetailPageActivity::class.java)
+                startActivity(intent)
             }
         })
         recyclerview.adapter = recyclerAdapter
