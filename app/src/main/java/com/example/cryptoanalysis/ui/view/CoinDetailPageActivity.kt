@@ -3,6 +3,12 @@ package com.example.cryptoanalysis.ui.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebViewClient
+
+import android.widget.ImageView
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.request.ImageRequest
+
 import com.example.cryptoanalysis.databinding.ActivityCoinDetailPageBinding
 import kotlinx.android.synthetic.main.activity_coin_detail_page.*
 
@@ -13,7 +19,16 @@ class CoinDetailPageActivity : AppCompatActivity() {
         binding = ActivityCoinDetailPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var coin = "BTC"
+
+        val coinName = intent.getStringExtra("coinName").toString()
+        val coinIcon = intent.getStringExtra("coinURL").toString()
+        val coinSymbol = intent.getStringExtra("coinSymbol").toString()
+
+        binding.imageView.loadUrl(coinIcon)
+
+        currencyname.text = coinName
+        var coin = coinSymbol
+
 
         loadChart("1", coin)
 
@@ -58,4 +73,21 @@ class CoinDetailPageActivity : AppCompatActivity() {
 
         )
     }
+
+    fun ImageView.loadUrl(url: String) {
+
+        val imageLoader = ImageLoader.Builder(this.context)
+            .componentRegistry { add(SvgDecoder(this@loadUrl.context)) }
+            .build()
+
+        val request = ImageRequest.Builder(this.context)
+            .crossfade(true)
+            .crossfade(500)
+            .data(url)
+            .target(this)
+            .build()
+
+        imageLoader.enqueue(request)
+    }
+
 }
