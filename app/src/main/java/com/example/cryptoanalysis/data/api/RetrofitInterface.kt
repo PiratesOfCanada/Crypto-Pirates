@@ -27,6 +27,7 @@ object Api {
         return BASE_URL
     }
 }
+
 @Module
 @InstallIn(SingletonComponent::class)
 object ApiModule {

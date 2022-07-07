@@ -1,24 +1,28 @@
 package com.example.cryptoanalysis.data.api
 
+import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.data.model.FavouriteCoin
 import com.example.cryptoanalysis.utils.AccessToken
 import okhttp3.Interceptor
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface FavCoinRetroApiInterface {
     @GET("favourite/coin")
-    suspend fun getFavouriteCoins(): Response<List<FavouriteCoin>>
+    suspend fun getFavouriteCoins(): Response<List<Coin>>
 
     @GET("favourite/coin/:id")
-    suspend fun getFavouriteCoin(id: String): Response<FavouriteCoin>
+    suspend fun getFavouriteCoin(id: String): Response<Coin>
 
-    @POST("favourite/coin/:id")
-    suspend fun saveFavouriteCoin(id: String)
+    @POST("favourite/coin")
+    suspend fun saveFavouriteCoin(@Body requestBody: RequestBody): Response<ResponseBody>
 
     @DELETE("favourite/coin/:id")
     suspend fun deleteFavouriteCoin(id: String)

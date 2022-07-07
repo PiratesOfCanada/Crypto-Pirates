@@ -12,10 +12,13 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cryptoanalysis.data.api.FavCoinRetroApiInterface
 import com.example.cryptoanalysis.data.model.Coin
+import com.example.cryptoanalysis.data.repo.FavouriteCoinRepository
 import com.example.cryptoanalysis.databinding.FragmentHomeBinding
 import com.example.cryptoanalysis.ui.viewmodel.HomeViewModel
 import com.example.cryptoanalysis.ui.adapters.RecyclerAdapter
+import com.example.cryptoanalysis.ui.viewmodel.FavouriteCoinViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,6 +30,7 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     val homeViewModel : HomeViewModel by viewModels()
+    private lateinit var vm: FavouriteCoinViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,6 +55,16 @@ class HomeFragment : Fragment() {
         })
         recyclerview.adapter = RecyclerAdapter
 
+        val inter = FavCoinRetroApiInterface.create()
+        val repo = FavouriteCoinRepository(inter)
+        vm = FavouriteCoinViewModel((repo))
+
+        vm.favouriteCoinList.observe(viewLifecycleOwner) {
+            list.addAll(it)
+            RecyclerAdapter.setItem(list)
+        }
+
+        vm.getAllFavouriteCoins()
 
         return root
     }

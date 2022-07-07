@@ -2,16 +2,18 @@ package com.example.cryptoanalysis.ui.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.data.model.FavouriteCoin
 import com.example.cryptoanalysis.data.repo.FavouriteCoinRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import okhttp3.RequestBody
 
 class FavouriteCoinViewModel(private val repo: FavouriteCoinRepository): ViewModel() {
-    var favouriteCoinList = MutableLiveData<List<FavouriteCoin>>()
-    var favouriteCoin = MutableLiveData<FavouriteCoin>()
+    var favouriteCoinList = MutableLiveData<List<Coin>>()
+    var favouriteCoin = MutableLiveData<Coin>()
     var job: Job? = null
 
     fun getAllFavouriteCoins() {
@@ -36,14 +38,15 @@ class FavouriteCoinViewModel(private val repo: FavouriteCoinRepository): ViewMod
         }
     }
 
-    fun saveFavouriteCoin(id: String) {
+    fun saveFavouriteCoin(reqBody: RequestBody) {
         job = CoroutineScope(Dispatchers.IO).launch {
-            var res = repo.saveFavouriteCoin(id)
-//            if(res.isSuccessful) {
+            var res = repo.saveFavouriteCoin(reqBody)
+            if(res.isSuccessful) {
 //                favouriteCoinList.postValue(res.body())
-//            } else {
-//                println("Not successful")
-//            }
+                println("Success")
+            } else {
+                println("Not successful")
+            }
         }
     }
 

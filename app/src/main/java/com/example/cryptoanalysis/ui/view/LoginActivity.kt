@@ -17,8 +17,8 @@ import com.google.firebase.ktx.Firebase
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore //Firestore Database/Cloud Firestore
-    lateinit var binding: ActivityLoginBinding
-    lateinit var preferences : SharedPreferences
+    private lateinit var binding: ActivityLoginBinding
+    private lateinit var preferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
