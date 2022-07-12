@@ -20,6 +20,8 @@ import com.example.cryptoanalysis.databinding.FragmentHomeBinding
 import com.example.cryptoanalysis.ui.viewmodel.HomeViewModel
 import com.example.cryptoanalysis.ui.adapters.RecyclerAdapter
 import com.example.cryptoanalysis.ui.viewmodel.FavouriteCoinViewModel
+import com.example.cryptoanalysis.ui.viewmodel.NewsViewModel
+import com.example.cryptoanalysis.utils.AccessToken
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,16 +32,16 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    val homeViewModel : HomeViewModel by viewModels()
-    private lateinit var vm: FavouriteCoinViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val vm : FavouriteCoinViewModel by viewModels()
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        println("abc:: ${AccessToken.accessToken}")
         val recyclerview :RecyclerView = binding.recyclerView
 
         var list = ArrayList<Coin>()
@@ -56,11 +58,12 @@ class HomeFragment : Fragment() {
         })
         recyclerview.adapter = RecyclerAdapter
 
-        val inter = FavCoinRetroApiInterface.create()
-        val repo = FavouriteCoinRepository(inter)
-        vm = FavouriteCoinViewModel((repo))
+//        val inter = FavCoinRetroApiInterface.create()
+//        val repo = FavouriteCoinRepository(inter)
+//        vm = FavouriteCoinViewModel((repo))
 
         vm.favouriteCoinList.observe(viewLifecycleOwner) {
+           println("abc:: ${AccessToken.accessToken}")
             list.addAll(it)
             RecyclerAdapter.setItem(list)
         }

@@ -2,11 +2,12 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
-    id 'org.sonarqube'
+
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'org.sonarqube'
 }
 
 sonarqube {
@@ -59,6 +60,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {

@@ -27,21 +27,21 @@ interface FavCoinRetroApiInterface {
     @DELETE("favourite/coin/:id")
     suspend fun deleteFavouriteCoin(id: String)
 
-    companion object {
-        private const val BASE_URL = "https://us-central1-crypto-pirates.cloudfunctions.net/api/"
-        fun create(): FavCoinRetroApiInterface {
-            val client = okhttp3.OkHttpClient.Builder()
-                .addInterceptor(OAuthInterceptor("Bearer", AccessToken.accessToken))
-                .build()
-
-            val retrofit = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
-                .client(client)
-                .build()
-            return retrofit.create(FavCoinRetroApiInterface::class.java)
-        }
-    }
+//    companion object {
+//        private const val BASE_URL = "https://us-central1-crypto-pirates.cloudfunctions.net/api/"
+//        fun create(): FavCoinRetroApiInterface {
+//            val client = okhttp3.OkHttpClient.Builder()
+//                .addInterceptor(OAuthInterceptor("Bearer", AccessToken.accessToken))
+//                .build()
+//
+//            val retrofit = Retrofit.Builder()
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .baseUrl(BASE_URL)
+//                .client(client)
+//                .build()
+//            return retrofit.create(FavCoinRetroApiInterface::class.java)
+//        }
+//    }
 }
 
 class OAuthInterceptor(private val tokenType: String, private val accessToken: String?) :

@@ -8,7 +8,7 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-interface NewsInterface {
+interface NewsInterface1 {
 
     @GET("/v1/all?source=cnn.com&sortBy=date&apiKey=ae2b2187-86cb-4da4-bf48-e413951b0f42&topic=Cryptocurrency")
     fun getAllNews() : Observable<ResponseNews>

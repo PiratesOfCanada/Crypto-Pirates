@@ -38,9 +38,9 @@ class NewsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val inter = NewsInterface.create()
-        val repo = NewsRepo(inter)
-        val vm =NewsViewModel(repo)
+//        val inter = NewsInterface.create()
+//        val repo = NewsRepo(inter)
+        val vm : NewsViewModel by viewModels()
 
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
         val root: View = binding.root

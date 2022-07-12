@@ -5,13 +5,16 @@ import androidx.lifecycle.ViewModel
 import com.example.cryptoanalysis.data.model.Coin
 import com.example.cryptoanalysis.data.model.FavouriteCoin
 import com.example.cryptoanalysis.data.repo.FavouriteCoinRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import okhttp3.RequestBody
+import javax.inject.Inject
 
-class FavouriteCoinViewModel(private val repo: FavouriteCoinRepository): ViewModel() {
+@HiltViewModel
+class FavouriteCoinViewModel @Inject constructor (private val repo: FavouriteCoinRepository): ViewModel() {
     var favouriteCoinList = MutableLiveData<List<Coin>>()
     var favouriteCoin = MutableLiveData<Coin>()
     var job: Job? = null
